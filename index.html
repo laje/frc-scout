@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|David+Libre" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'David Libre';
+            background-color: #FCF3CF;
+        }
+
+        p {
+            line-height: 24px;
+            font-size: 18px;
+        }
+
+        span[class^='hl-'] {
+            background-color: #F9E79F;
+            padding: 2px;
+            border-radius: 4px 4px 4px 4px;
+            transition: .25s ease;
+            box-shadow: .5px .5px .5px .5px rgba(0, 0, 0, 0.75);
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        span[class^='hl-']:hover {
+            background-color: #CD6155;
+            cursor: pointer;
+        }
+
+        .code {
+            background-color: #EAEDED;
+            font-family: 'Cutive Mono';
+        }
+
+        #container {
+            margin: 0 auto;
+            margin-top: 48px;
+            width: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <h1>
+          hello, web app.
+        </h1>
+        <p>
+            If you're reading this, awesome! The contents of this page will help you understand the process behind creating an app that runs on the internet, and thus practicaly every modern device that you can think of.
+        </p>
+        <p>
+            I think it'd be neat if our team, FRC 5752 would create an all-in-one scouting app, which can be taylored to our needs throughout the competition. A couple other members seem to agree.
+        </p>
+        <p>
+          For real, if you have any trouble or don't understand something, talk to one of the team's programmers.
+        </p>
+
+
+        <h2>
+          Table of Contents
+        </h2>
+        <ol>
+          <li>Applicable Talents</li>
+          <li>Programming Languages
+            <ol>
+              <li>HTML</li>
+              <li>CSS3</li>
+              <li>Javascript
+                <ul>
+                  <li>jQuery</li>
+                  <li><i>NodeJS, as an alternative to PhP</i></li>
+                </ul>
+              </li>
+              <li>PhP</li>
+              <li>MySQL</li>
+            </ol>
+          </li>
+          <li>Makig a good experience</li>
+          <li>Working as a team</li>
+        </ol>
+
+        <h3>
+          Applicable Talents
+        </h3>
+        <p>
+          I'm not a very good writer. This will go in later.
+        </p>
+
+        <h3>
+          Programming Languages
+        </h3>
+        <p>
+          There's two primary ways to go about making an app. Those would be <i>proprietary</i> development, for only one system, and <i>universal</i> development, for many. For example, an app written for iOS or Android would only work on one, and not the other, let alone any compuer. A universal app written for the web, however, can be run on any device with an internet connection. This is what we will focus on.
+        </p>
+        <p>
+          A lot of different programming languages will be used in this, read up on them below if you're interested and see if you can figure which one you'd like to learn more about.
+        </p>
+        <h4>
+          HTML: Hypertext Markup Language
+        </h4>
+        <p>
+          HTML, and variations of it, have been around for quite a while. It holds the purpose of creating a backbone of the page that is to be displayed to the user. It defines the elements on the page, their content, and to an extent, how they will be displayed. Learning this language generally goes hand in hand with learning <i>at least</i> css, if not javascript as well. It's a relatively simple language overall, and if you're serious about learning it it shouldn't take more than a week to master.
+        </p>
+        <h4>
+          CSS3
+        </h4>
+        <p>
+          Usually just known as css, this language is what defines the apperance of the page to the user. More specifically, it gives the browser instructions on how to render a page. The rules in CSS can, for example, define the font to be used on a specific element, or the size of an image, or the background color of a website, to name a few. Some of these things can be tricky, esepecially when you get into writing the page to ensure it works on both mobile and desktop. There's a lot you can do though, especially if you've got a creative mind.
+        </p>
+        <h4>
+          Javascript
+        </h4>
+        <p>
+          Javascript can do so many different things, I can't even begin to list them. Javascript is code that runs on the user <i>"Client"</i> computer. This can be used to achieve all sorts of things, but most of the javascript that will be used is focused around user interaction.
+        </p>
+        <!-- <h3>
+          what is a json object
+        </h3>
+        <p>
+            A json object is a chunk of data in the javascript object notation. an example of this notation is shown below. note that this is an example to show <i>structure</i>. This is <i>not</i>            what actual json data looks like.
+            <div id='json-example' class='code'>
+                <ol>
+                    <li>Top level object I
+                        <ol>
+                            <li>Second level object I
+                                <ol>
+                                    <li>Third level object I</li>
+                                    <li>Third level object II</li>
+                                </ol>
+                            </li>
+                        </ol>
+                        <li>Second level object II</li>
+                    </li>
+                </ol>
+            </div>
+        </p> -->
+        <!-- <h3>
+          understanding AJAX functions
+        </h3>
+        <p>
+            AJAX, or Asynchronous javascript and XML, is a way of dynamically updating content on a page. Funny enough, we don't actually use it for xml anymore, we use it with json,
+            but it's generally accepted that AJAX sounds better than ajaj. It can be extremely useful in situations where you want to either send or recieve data without having to reload the entire page. We'll use this for the scounting app so to ensure data is sent and recieved whenever possible. It also makes things look a lot cleaner, especially on mobile. AJAX can be complicated when done with vanilla javascript, so we'll be using the jQuery functions made for it.
+        </p> -->
+    </div>
+</body>
