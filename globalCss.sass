@@ -1,0 +1,66 @@
+.hidden
+  display: none !important
+
+.appleMargin
+  margin-top: 20px !important
+
+#appleBar
+  position: fixed
+  top: 0
+  left: 0
+  height: 20px
+  width: 100%
+  background-color: #E67E22
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.75)
+  z-index: 99
+
+#mobile-notification
+  position: fixed
+  bottom: 0
+  left: 0
+  background-color: #fff
+  width: 100%
+  display: flex
+  flex-direction: row
+  text-align: center
+  height: 64px
+
+=mobile-img-ani-mix
+  -wekbit-animation: hue 3.5s infinite ease-in-out
+  -moz-animation: hue 3.5s infinite ease-in-out
+  animation: hue 3.5s infinite ease-in-out
+
+#mobile-img
+  height: 64px
+  width: 64px
+  background-image: url('/frc/appIcon.png')
+  background-size: contain
+  +mobile-img-ani-mix
+
+#mobile-txt
+  font-size: 18px
+  font-weight: 100
+  text-align: left
+  padding: 12px
+
+@keyframes hue
+  0%
+    filter: hue-rotate(0deg)
+  100%
+    filter: hue-rotate(360deg)
+
+@-webkit-keyframes hue
+  0%
+    -webkit-filter: hue-rotate(0deg)
+  100%
+    -webkit-filter: hue-rotate(360deg)
+
+@-moz-keyframes hue
+  0%
+    -moz-filter: hue-rotate(0deg)
+  100%
+    -moz-filter: hue-rotate(360deg)
+
+@media all and (display-mode: standalone)
+  #mobile-notification
+    display: none !important
