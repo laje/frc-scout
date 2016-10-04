@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html><?php include('../allPages.php'); ?>
+<html><?php include('../globals/allPages.php'); ?>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
   </head>
   <script src="pitJs.js"></script>
@@ -11,7 +10,12 @@
       <div id="add-robot" class="action-card-body">
         <div class="action-card-header">Add a Team's Robot</div>
         <div class="divider"></div>
-        <div season="stronghold" class="action-card-content">
+        <div season="stronghold" class="action-card-content"> 
+          <div id="question-teamnumber" class="action-card-subtitle">Team Number:
+            <form>
+              <input id="variable-team" type="number" class="variable-option">
+            </form>
+          </div>
           <div id="action-card-subtitle-offense" class="action-card-subtitle">Offense</div>
           <div class="divider short"></div>
           <div class="action-card-split-container">
@@ -128,7 +132,7 @@
         </div>
       </div>
     </div>
-    <div id="mobile-notification" class="hidden">
+    <div id="mobile-notification">
       <div id="mobile-img">&nbsp</div>
       <div id="mobile-txt">On mobile?<br>Pin to your homescreen.</div>
     </div>

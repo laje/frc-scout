@@ -1,9 +1,8 @@
 doctype html
 html
-  | <?php include('../allPages.php'); ?>
+  | <?php include('../globals/allPages.php'); ?>
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i', rel='stylesheet')
     link(href='style.css', rel='stylesheet')
   script(src='pitJs.js')
   body
@@ -12,7 +11,11 @@ html
         .action-card-header
           | Add a Team's Robot
         .divider
-        .action-card-content(season='stronghold')
+        .action-card-content(season='stronghold') 
+          #question-teamnumber.action-card-subtitle
+            | Team Number:
+            form
+              input#variable-team.variable-option(type='number')
           #action-card-subtitle-offense.action-card-subtitle
             | Offense
           .divider.short
@@ -123,7 +126,7 @@ html
                   input#option-obstacle-lowbar(type='hidden', value='false')
           .submit-button(onclick='submitData()')
             | Submit Data to Server
-    #mobile-notification.hidden
+    #mobile-notification
       #mobile-img &nbsp
       #mobile-txt
         | On mobile?

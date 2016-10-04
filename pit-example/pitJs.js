@@ -50,6 +50,7 @@ var jsonObject = null;
 
 function submitData(){
     jsonObject = {"userData":{
+      "teamnumber":document.getElementById('variable-team').value,
       "highGoalBool":document.getElementById('option-highgoal').value,
       "highGoalVal":document.getElementById('variable-highgoal').value,
       "lowGoalBool":document.getElementById('option-lowgoal').value,

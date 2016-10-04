@@ -1,0 +1,73 @@
+$timberwolf: rgba(221, 213, 208, 1)
+$silver: rgba(207, 192, 189, 1)
+$space: rgba(62, 92, 118, 1)
+$flame: rgba(237, 84, 37, 1)
+$eggshell: rgba(240, 235, 216, 1)
+
+$enemy: rgba(231, 76, 60, 1)
+$ally: rgba(88, 214, 141, 1)
+
+$lightshade: rgba(0, 0, 0, .35)
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+=box-shadow($left, $top, $blur, $color)
+  -webkit-box-shadow: $left $top $blur $color
+  -moz-box-shadow: $left $top $blur $color
+  box-shadow: $left $top $blur $color
+
+*
+  text-align: center
+  margin: 8px
+  font-family: ubuntu
+
+body
+  background-color: $eggshell
+
+.primary
+  +border-radius(4px)
+  +box-shadow(0, 6px, 8px, $lightshade)
+  background-color: $timberwolf
+  padding: 4px
+
+  margin: 0 auto
+  width: 75%
+
+.primary.stats-content
+  display: flex
+  text-align: center
+  padding: 0
+
+.stats-container
+  margin: 8px auto
+  width: 50%
+
+.stats
+  padding: 8px 24px
+  transition: .5s ease
+  width: 45%
+  margin: 8px auto
+
+.stats:hover
+  cursor: pointer
+  transform: scale(1.2)
+
+.stats.ally
+  background-color: $ally
+
+.stats.enemy
+  background-color: $enemy
+
+.remove-input-button
+  padding: 1px 4px
+  background-color: $silver
+  border: 1px solid #000
+
+.remove-input-button:hover
+  background-color: $space
+  color: #fff
+  cursor: pointer
