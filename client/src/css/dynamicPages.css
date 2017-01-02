@@ -1,0 +1,87 @@
+/*
+[dynamicPages.css]
+-> Level 1 & 2 Rules
+  -> Rules for different pages
+    -> Competition pages, etc.
+-> Document Element Rules
+
+By Dan Lynch
+for BHS FIRST Robotics Competition Team 5752
+*/
+
+#fake-discalimer:before{
+  content: 'Not all of these temas actually exist. Keep that in mind.';
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+
+h1.dynamic-page-header{
+  transition: 0.5s ease;
+}
+
+h1.dynamic-page-header:hover{
+  cursor: pointer;
+}
+
+h1.dynamic-page-header:before{
+  content: "ll";
+  transition: .5s ease;
+}
+
+h1.dynamic-page-header:hover:before{
+  color: #E6593E;
+  margin-left: 24px;
+  margin-right: 8px;
+}
+
+h1.dynamic-page-header:after{
+  position: relative;
+  left: -64px;
+
+  color: rgba(0, 0, 0, 0);
+
+  font-size: 18px;
+  content: " ";
+
+  transition: .35s ease;
+}
+
+h1.dynamic-page-header:hover:after{
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.55);
+
+  left: 0;
+}
+
+h1.dynamic-page-header#header-scouter:hover:after      { content: "(Launchpad)" }
+
+h1.dynamic-page-header#header-competition:hover:after  { content: "Teams in the current competition" }
+h1.dynamic-page-header#header-game:hover:after         { content: "Scout a team's gameplay" }
+h1.dynamic-page-header#header-pit:hover:after          { content: "Scout a team's robot out of game" }
+
+h1.dynamic-page-header#header-about:hover:after        { content: "Learn about our scouting app" }
+h1.dynamic-page-header#header-home:hover:after         { content: "Ready for action!" }
+
+div.dynamic-page-container{
+  padding: 12px;
+
+  animation-name: dynamic-page;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+
+  animation-timing-function: ease-in;
+}
+
+@keyframes dynamic-page{
+  0%{
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  70%{
+    transform: translateY(3px);
+  }
+  100%{
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,65 @@
+/*
+[scouter.css]
+-> Level 3 Rules
+  -> Rules exclusive to a given "solo" page.
+    -> Rules for the competition list
+
+By Dan Lynch
+for BHS FIRST Robotics Competition Team 5752
+*/
+
+#display-data-list{
+  font-size: 15px;
+  padding: 14px;
+}
+
+.display-data-container{
+  margin: 4px;
+}
+
+.display-data-contents{
+  margin: 4px;
+}
+
+.display-data-contents.elem{
+  border-left: 2px solid rgba(0, 0, 0, 0.35);
+  /*border-radius: 0 0 0 4px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);*/
+  margin-left: 0;
+  padding-left: 4px;
+}
+
+.display-data-contents.elem{
+  display: inline-block;
+  width: 96px;
+}
+
+.display-data-contents.edit{
+  background-color: #498DD1;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #F7F9F9;
+  margin-left: 12px;
+}
+
+.display-data-contents.edit:hover{
+  cursor: pointer;
+  color: #E5E7E9;
+  background-color: #2471A3;
+}
+
+.display-data-contents.close{
+  background-color: #2ECC71;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #F7F9F9;
+  margin-left: 12px;
+}
+
+.display-data-contents.close:hover{
+  cursor: pointer;
+  color: #E5E7E9;
+  background-color: #229954;
+}

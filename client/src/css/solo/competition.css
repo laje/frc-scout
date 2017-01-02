@@ -1,0 +1,64 @@
+/*
+[competition.css]
+-> Level 3 Rules
+  -> Rules exclusive to a given "solo" page.
+    -> Rules for the competition list
+
+By Dan Lynch
+for BHS FIRST Robotics Competition Team 5752
+*/
+
+span{ transition: 0.5s ease; }
+
+.teams-container{
+  padding: 8px;
+  border: 1px solid black;
+
+  background-color: white;
+  /*background: linear-gradient(90deg, rgba(123, 69, 34, 0), rgba(43, 214, 11, 1)200%);*/
+
+  background-image: -webkit-linear-gradient(right, #2C3E50, #FD746C);
+  background-image: -o-linear-gradient(right, #2C3E50, #FD746C);
+  background-image: linear-gradient(to left, #2C3E50, #FD746C);
+
+  margin: 8px auto;
+
+  transition: 0.5s ease;
+}
+
+.teams-number{
+  opacity: 0.3;
+  position: fixed;
+  display: block;
+
+  font-weight: 600;
+  font-style: italic;
+  font-size: 76px;
+}
+
+.teams-subcontainer{
+  font-size: 22px;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.75);
+
+  transition: 0.5s ease;
+}
+
+.teams-sub{
+  margin: 2px;
+  color: black;
+
+  transition: 0.5s ease;
+}
+
+.teams-container:hover{
+  padding-left: 22px;
+  cursor: pointer;
+
+  /*Excuse my use of !important, it's the only way I can make
+  things play nice with the react components.*/
+  background: linear-gradient( 315deg, rgba(19,78,94, 0.6), rgba(113,178,128, 0.6) 150%) !important;
+}
+
+.teams-container:hover > .teams-number{
+  margin-left: 48px;
+}

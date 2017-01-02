@@ -1,0 +1,109 @@
+/*
+[staticComponents.css]
+-> Level 0 Rules
+  -> Typeface
+  -> Color Palette
+-> Header Rules
+-> Footer Rules
+
+By Dan Lynch
+for BHS FIRST Robotics Competition Team 5752
+*/
+
+*{
+  font-family: Quicksand;
+  transition: 0.25s ease;
+}
+
+body{
+  background-color: #CAD2C5;
+
+  /*compensate for the header,
+  ( header height - 8 )px*/
+
+  padding-top: 78px;
+}
+
+header{
+  width: 100%;
+  background-color: #9AA0A8;
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+  height: 86px;
+
+  text-align: center;
+
+
+}
+
+footer{
+  color: #CAD2C5;
+  background-color: #504746;
+
+  padding: 48px 24px;
+
+  position: absolute;
+  left: 0px;
+  width: calc(100% - 48px);
+}
+
+a{
+  color: #CAD2C5;
+}
+
+a.inline{
+  color: #504746;
+}
+
+a:hover{
+  color: #E6593E;
+  /*text-shadow: -1px 1px rgba(0, 0, 0, 0.45);*/
+  font-weight: bold;
+}
+
+.hidden{
+  display: none;
+}
+
+.spacer{
+  margin: 0 8px;
+}
+.spacer.wide{
+  margin: 0 16px;
+}
+
+.bhs{
+  color: #E6593E;
+  font-weight: bold;
+}
+
+.header-item{
+  display: inline-block;
+  font-size: 24px;
+  line-height: 86px;
+}
+
+.header-link{
+  color: #504746;
+}
+.header-link:hover{
+  color: #CAD2C5;
+}
+
+.header-item.large{
+  font-size: 36px;
+  vertical-align: sub;
+}
+
+.header-item.arrow{
+  font-size: 28px;
+  margin-left: 12px;
+}
+
+.header-item.arrow.small{
+  vertical-align: middle;
+  font-size: 24px;
+}

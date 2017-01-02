@@ -1,0 +1,62 @@
+{
+  "teams" : {
+    "5752": {
+      "teamName": "BevBotics",
+      "teamNumber": 5752,
+      "teamHome": "Beverly, MA",
+      "teamColour": "#E67E22",
+      "teamRecord": {
+        "win": 10,
+        "loss": 17,
+        "tie": 1
+      },
+      "scout":{
+        "game": [ "Consistent with the bottom goal.." ],
+        "pit": {
+          "WheelType":"Air",
+          "GoalType":"High",
+          "HighGoals":"99",
+          "LowGoals": "99"
+        }
+      }
+    },
+    "1234":{
+      "teamName": "Test-Team-Name",
+      "teamNumber": "Test-Team-Number",
+      "teamHome": "Test-Team-Home",
+      "teamColour": "#D2B4DE",
+      "teamRecord": {
+        "win": 123,
+        "loss": 456,
+        "tie": 789
+      },
+      "scout":{
+        "game": [ "Consistent with the bottom goal.." ],
+        "pit": {
+
+        }
+      }
+    },
+    "1":{
+      "teamName": "The Juggernauts",
+      "teamNumber": 1,
+      "teamHome": "Pontiac, MI",
+      "teamColour": "#F4D03F",
+      "teamRecord":{
+        "win": 14,
+        "loss": 12,
+        "tie": 1
+      }
+    }
+  },
+  "competitions": {
+    "TestCompetition":{
+      "name":"Test-Competition",
+      "participants": [ 5752, 1, 1234, 5678, 312, 931 ]
+    },
+    "Competition2":{
+      "name":"competition numero dos",
+      "participants": [5752, 1234, 231, 99, 931]
+    }
+  }
+}
