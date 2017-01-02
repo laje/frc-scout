@@ -11,6 +11,7 @@ for BHS FIRST Robotics Competition Team 5752
 span{ transition: 0.5s ease; }
 
 .teams-container{
+  width: 95%;
   padding: 8px;
   border: 1px solid black;
 
@@ -54,6 +55,8 @@ span{ transition: 0.5s ease; }
   padding-left: 22px;
   cursor: pointer;
 
+  width: calc(95% - 14px) !important;
+
   /*Excuse my use of !important, it's the only way I can make
   things play nice with the react components.*/
   background: linear-gradient( 315deg, rgba(19,78,94, 0.6), rgba(113,178,128, 0.6) 150%) !important;
@@ -62,3 +65,6 @@ span{ transition: 0.5s ease; }
 .teams-container:hover > .teams-number{
   margin-left: 48px;
 }
+
+.h-split-container{ display: flex; }
+.horiz-split{ width: 50%; }

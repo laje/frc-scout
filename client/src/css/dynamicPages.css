@@ -72,6 +72,10 @@ div.dynamic-page-container{
   animation-timing-function: ease-in;
 }
 
+.dynamic-page-subtitle{
+  text-align: center;
+}
+
 @keyframes dynamic-page{
   0%{
     opacity: 0;

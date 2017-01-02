@@ -39,10 +39,23 @@ export default class Competition extends React.Component {
 
   render() {
     return (
-      <div class='dynamic-page-container'>
+      <div class='dynamic-page-container competition'>
         <h1 class='dynamic-page-header' id='header-competition'> Competition </h1>
         <hr/>
-        <div>{this.state.rows}</div>
+        <div class='h-split-container'>
+          <div class='horiz-split'>
+            <h2 class='dynamic-page-subtitle'>
+              Particpiant Teams
+            </h2>
+            {this.state.rows}
+          </div>
+          <div class='horiz-split' id='analytic'>
+            <h2 class='dynamic-page-subtitle'>
+              Analytic Data
+            </h2>
+            #temporary filler content#
+          </div>
+        </div>
       </div>
     );
   }
