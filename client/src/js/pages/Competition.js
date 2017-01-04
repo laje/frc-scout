@@ -16,6 +16,8 @@ export default class Competition extends React.Component {
       comp = this.props.location.query.competition;
     }
 
+    let analyticData = {}
+
     fetch('http://localhost:8081/read?competition=' + comp)
     .then(
       function(response) {
@@ -26,6 +28,8 @@ export default class Competition extends React.Component {
         }
 
         response.json().then(function(data) {
+          analyticData.comp = data.criteria;
+          analyticData.partic = data.participants;
           for(let i = 0; i < Object.keys(data.participants).length; i++) {
             rows.push(<CompetitionBase key={i} teamNumber={data.participants[i]} testing={"123"}/>)
           }
@@ -36,7 +40,31 @@ export default class Competition extends React.Component {
     .catch(function(err) {
       console.log('Fetch Error: ', err);
     });
+
+    // ====== IN PROGRESS: ACTUAL DATA IN THE ANALYTIC SECTION =======
+    // let totalItems = Object.keys(analyticData.comp)
+    //
+    // for(let i = 0; i < Object.keys(analyticData.partic); i++){
+    //   fetch('http://localhost:8081/read?team=' + analyticData.team)
+    //   .then(
+    //     function(response) {
+    //       if (response.status !== 200) {
+    //         console.log('Error: ' +
+    //           response.status);
+    //         return;
+    //       }
+    //
+    //       response.json().then(function(data) {
+    //
+    //       }.bind(this));
+    //     }.bind(this)
+    //   )
+    //   .catch(function(err) {
+    //     console.log('Fetch Error: ', err);
+    //   });
+    //}
   }
+
 
   render() {
     return (
@@ -54,9 +82,18 @@ export default class Competition extends React.Component {
             <h2 class='dynamic-page-subtitle'>
               Analytic Data
             </h2>
-            <HalfCircle element='Overall Completion' percent='86.123' color="#1FB2B1"/>
-            <HalfCircle element="Teams worse than us" percent='2.379525' color="#DCA249"/>
-            <HalfCircle element="Some other goal" percent='45' color="#78C8C5"/>
+            <div class='h-split-container'>
+              <div class="horiz-split">
+                <HalfCircle element="Overall Completion" percent='86.123' color="#85929E"/>
+                <HalfCircle element="Pit Completion" percent='2.379525' color="#EB984E"/>
+                <HalfCircle element="Game Completion" percent='45' color="#F5B041"/>
+              </div>
+              <div class="horiz-split">
+                <HalfCircle element="Practical Allies" percent='98.123' color="#5DADE2"/>
+                <HalfCircle element="Difficult Opponents" percent='35.379525' color="#E74C3C"/>
+                <HalfCircle element="Some other goal" percent='29' color="#78C8C5"/>
+              </div>
+            </div>
           </div>
         </div>
       </div>

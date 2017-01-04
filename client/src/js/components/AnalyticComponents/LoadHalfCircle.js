@@ -31,7 +31,7 @@ export default class HalfCircle extends React.Component{
     }
 
     return(
-      <div>
+      <div class='svg-container'>
         <svg width="200" height="175">
           <path style={circleStyle} id={"gr-" + this.props.element} stroke={col} strokeWidth="115"
               d="
@@ -41,7 +41,6 @@ export default class HalfCircle extends React.Component{
               a 25,25 0 1,0 -50,0
               "
           />
-          {/*Covers the center. If you want the full circle shown, remove this.*/}
           <circle id="ci" fill={bgcol} r="40" cy="75" cx="100"/>
           <text fontSize="18px" x="16" y="45">
             {"|  " + el}

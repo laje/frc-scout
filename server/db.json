@@ -52,10 +52,11 @@
   "competitions": {
     "TestCompetition":{
       "name":"Test-Competition",
-      "participants": [ 5752, 1, 1234, 5678, 312, 931 ]
+      "participants": [ 5752, 1, 1234, 5678, 312, 931 ],
+      "criteria": [ "WheelType", "GoalType", "HighGoals", "LowGoals", "Obstacles", "Special"]
     },
     "Competition2":{
-      "name":"competition numero dos",
+      "name":"competition number two",
       "participants": [5752, 1234, 231, 99, 931]
     }
   }
