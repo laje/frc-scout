@@ -1,5 +1,6 @@
 import React from "react";
 import CompetitionBase from '../components/ScoutingComponents/CompetitionComponent.js'
+import HalfCircle from '../components/AnalyticComponents/LoadHalfCircle.js'
 
 export default class Competition extends React.Component {
   constructor(props){
@@ -53,7 +54,9 @@ export default class Competition extends React.Component {
             <h2 class='dynamic-page-subtitle'>
               Analytic Data
             </h2>
-            #temporary filler content#
+            <HalfCircle element='Overall Completion' percent='86.123' color="#1FB2B1"/>
+            <HalfCircle element="Teams worse than us" percent='2.379525' color="#DCA249"/>
+            <HalfCircle element="Some other goal" percent='45' color="#78C8C5"/>
           </div>
         </div>
       </div>

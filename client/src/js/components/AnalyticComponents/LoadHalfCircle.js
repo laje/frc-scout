@@ -1,3 +1,4 @@
+import React from "react";
 /*
   Half-Cirlce progress indicator.
   Expects Props [
@@ -10,47 +11,48 @@
   ]
 */
 
-import react from "React";
-
-export default class HalfCircle extends React.component{
-  constructor(props){
-    super(props)
-
-    let ce = document.getElementById("gr-" + this.props.element);
-      function tick(x){
-        ce.style.strokeDasharray = x;
-        //475-238 is half. % => (238+[%*238])
-        let q = 238 + (this.props.completion*238)
-          if(x>q){setTimeout(function(){
-            tick(x-1)}, 1);
-          }
-      }
-    tick(475);
-  }
+export default class HalfCircle extends React.Component{
   render(){
-    bgcol = "#CAD2C5";
-    if this.props.element{
-      bgcol = this.props.element;
-    }
+    let bgcol = "#CAD2C5";
+    if( this.props.bgcol ) { bgcol = this.props.bgcol }
 
-    col = "#229954";
-    if this.props.color{
-      col = this.props.element;
+    let col = "#229954";
+    if( this.props.color ) { col = this.props.color }
+
+    let el = this.props.element
+    let pcp = Math.floor(this.props.percent)
+
+    let dtc = 78.25
+
+    let circleStyle = {
+      strokeDasharray: dtc * 2,
+      //Switch to x + y instead in order to put the half circle above.
+      strokeDashoffset: ((dtc * 2) - (dtc * pcp / 100))
     }
 
     return(
-      <svg width="400" height="400">
-        <path id="gr-{this.props.element}" stroke="#fff" fill="{col}" stroke-width="115"
-            d="
-            M 100, 100
-            m -75, 0
-            a 75,75 0 1,0 150,0
-            a 75,75 0 1,0 -150,0
-            "
-        />
-        {/*Covers the center. If you want the full circle shown, remove this.*/}
-        <circle id="ci" fill="{bgcol}" r="25" cy="100" cx="100"/>
-      </svg>
+      <div>
+        <svg width="200" height="175">
+          <path style={circleStyle} id={"gr-" + this.props.element} stroke={col} strokeWidth="115"
+              d="
+              M 150, 100
+              m -75, -25
+              a 25,25 0 1,0 50,0
+              a 25,25 0 1,0 -50,0
+              "
+          />
+          {/*Covers the center. If you want the full circle shown, remove this.*/}
+          <circle id="ci" fill={bgcol} r="40" cy="75" cx="100"/>
+          <text fontSize="18px" x="16" y="45">
+            {"|  " + el}
+          </text>
+          <text fontSize="24px" fontFamily="Courier New" x="82.5" y="80">
+            {pcp + "%"}
+          </text>
+          <line stroke="#000" strokeWidth="2px" x1="17.5" x2="60" y1="72.5" y2="72.5"/>
+          <line stroke="#000" strokeWidth="2px" x1="140" x2="182.5" y1="72.5" y2="72.5"/>
+        </svg>
+      </div>
     )
   }
 }
