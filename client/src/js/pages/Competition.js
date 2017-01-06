@@ -6,7 +6,7 @@ export default class Competition extends React.Component {
   constructor(props){
     super(props)
 
-    this.state = {rows: <p>No database connection...</p>}
+    this.state = {rows: <p>No database connection...</p>, testing: 100}
 
     let participants = []
     let rows = []
@@ -31,7 +31,7 @@ export default class Competition extends React.Component {
           analyticData.comp = data.criteria;
           analyticData.partic = data.participants;
           for(let i = 0; i < Object.keys(data.participants).length; i++) {
-            rows.push(<CompetitionBase key={i} teamNumber={data.participants[i]} testing={"123"}/>)
+            rows.push(<CompetitionBase key={i} teamNumber={data.participants[i]}/>)
           }
           this.setState({rows: rows})
         }.bind(this));
@@ -63,6 +63,11 @@ export default class Competition extends React.Component {
     //     console.log('Fetch Error: ', err);
     //   });
     //}
+
+    setTimeout(() => {
+      this.setState({"testing": 55})
+    , 0})
+
   }
 
 
@@ -84,7 +89,7 @@ export default class Competition extends React.Component {
             </h2>
             <div class='h-split-container'>
               <div class="horiz-split">
-                <HalfCircle element="Overall Completion" percent='86.123' color="#85929E"/>
+                <HalfCircle element="Overall Completion" percent={this.state.testing} color="#85929E"/>
                 <HalfCircle element="Pit Completion" percent='2.379525' color="#EB984E"/>
                 <HalfCircle element="Game Completion" percent='45' color="#F5B041"/>
               </div>
