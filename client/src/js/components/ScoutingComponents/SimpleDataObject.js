@@ -5,11 +5,6 @@ export default class SimpleData extends React.Component {
     super(props)
     let content = this.props.data;
 
-    content.li = "li-" + content.elem;
-    content.lie = "lie-" + content.elem;
-    content.bu = "bu-" + content.elem;
-    content.bue = "bue-" + content.elem;
-
     this.state = {};
     this.state.content = content;
 
@@ -64,10 +59,10 @@ export default class SimpleData extends React.Component {
       <div class='display-data-container'>
         <div class='display-data-element'>
           <span class='display-data-contents elem'>{this.state.content.elem}</span>
-          <span class='display-data-contents data' id={this.state.content.li}>{this.state.content.data}</span>
-          <input type='text' class='hidden' value={this.state.content.data} onChange={this.onChange} id={this.state.content.lie}/>
-          <span class='display-data-contents edit' id={this.state.content.bu} onClick={this.openEditData.bind(this)}>edit</span>
-          <span class='hidden' id={this.state.content.bue} onClick={this.closeEditData.bind(this)}>done</span>
+          <span class='display-data-contents data' id={"li-" + this.props.data.elem}>{this.state.content.data}</span>
+          <input type='text' class='hidden' value={this.state.content.data} onChange={this.onChange} id={"lie-" + this.props.data.elem}/>
+          <span class='display-data-contents edit' id={"bu-" + this.props.data.elem} onClick={this.openEditData.bind(this)}>edit</span>
+          <span class='hidden' id={"bue-" + this.props.data.elem} onClick={this.closeEditData.bind(this)}>done</span>
         </div>
       </div>
     )

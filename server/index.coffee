@@ -9,12 +9,6 @@ ex.use( (req, res, next) ->
 )
 
 getItems = (req) ->
-  # if req.team != null
-  #   readDb("team", req.team, null)
-  # else if req.competition != null
-  #   readDb("competition", null, req.competition)
-  # else
-  #   readDb("all", null, null)
   return switch
     when req.team then readDb("team", req.team, null)
     when req.competition then readDb("competition", null, req.competition)
@@ -22,7 +16,6 @@ getItems = (req) ->
 
 readDb = (url = "all", team, comp) ->
   gdata = JSON.parse(fs.readFileSync("#{__dirname}/db.json", 'utf8', (err, data) -> if err then console.log(err)))
-
   return switch url
     when "team" then dbTeam(gdata, team)
     when "competition" then dbComp(gdata, comp)
@@ -45,6 +38,5 @@ ex.get('/read', (req, res) ->
 server = ex.listen(8081, () ->
   host = server.address().address
   port = server.address().port
-
   console.log("Server Online~ [#{host}:#{port}]")
 )
