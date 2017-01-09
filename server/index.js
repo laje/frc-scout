@@ -53,6 +53,10 @@
     }
     if (team === "all") {
       return data.teams;
+    } else if (!data.teams["" + team]) {
+      return {
+        bad_team: team
+      };
     } else {
       return data.teams["" + team];
     }
@@ -70,6 +74,7 @@
   };
 
   ex.get('/read', function(req, res) {
+    console.log(req.query);
     res.end(JSON.stringify(getItems(req.query)));
   });
 

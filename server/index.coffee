@@ -24,6 +24,7 @@ readDb = (url = "all", team, comp) ->
 
 dbTeam = (data, team="all") ->
   if team is "all" then return data.teams
+  else if !data.teams["#{team}"] then return({bad_team: team})
   else return data.teams["#{team}"]
 
 dbComp = (data, comp="all") ->
@@ -31,6 +32,7 @@ dbComp = (data, comp="all") ->
   else return data.competitions["#{comp}"]
 
 ex.get('/read', (req, res) ->
+  console.log(req.query)
   res.end(JSON.stringify(getItems(req.query)))
   return
 )

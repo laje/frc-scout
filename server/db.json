@@ -52,8 +52,19 @@
   "competitions": {
     "TestCompetition":{
       "name":"Test-Competition",
-      "participants": [ 5752, 1, 1234, 5678, 312, 931 ],
-      "criteria": [ "WheelType", "GoalType", "HighGoals", "LowGoals", "Obstacles", "Special"]
+      "participants": [ 5752, 1, 1234, 5678, 312, 931, 4142 ],
+      "criteria": [
+        {
+          "id": "MainPoint",
+          "display": "Primary scoring method",
+          "question": "How does this robot score points?",
+          "type": "radio",
+          "options": [
+            "Boiler",
+            "Gears"
+          ]
+        }
+      ]
     },
     "Competition2":{
       "name":"competition number two",
