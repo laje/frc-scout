@@ -21,7 +21,7 @@ export default class SimpleData extends React.Component {
   }
 
   openEditData(){
-    console.log(this.state)
+    // console.log(this.state)
     var domElem = document.getElementById("li-" + this.state.content.elem);
     var inputElem = document.getElementById("lie-" + this.state.content.elem);
     var buttonElem = document.getElementById("bu-" + this.state.content.elem);

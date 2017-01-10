@@ -63,6 +63,16 @@
             "Boiler",
             "Gears"
           ]
+        },
+        {
+          "id": "ClimbRope",
+          "display": "Ability to climb",
+          "question": "Can this robot climb the rope at the end of a match?",
+          "type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ]
         }
       ]
     },
