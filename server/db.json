@@ -1,1 +1,158 @@
-{"teams":{"1":{"teamName":"The Juggernauts","teamNumber":1,"teamHome":"Pontiac, MI","teamColour":"#F4D03F","teamRecord":{"win":14,"loss":12,"tie":1},"scout":{"pit":{"MainPoint":"Boiler","ClimbRope":"No"},"game":{}}},"312":{"scout":{"pit":{"MainPoint":"Gears","ClimbRope":"No"}}},"931":{"scout":{"pit":{"MainPoint":"Boiler","ClimbRope":"No"},"game":{}}},"1234":{"teamName":"Test-Team-Name","teamNumber":"Test-Team-Number","teamHome":"Test-Team-Home","teamColour":"#D2B4DE","teamRecord":{"win":123,"loss":456,"tie":789},"scout":{"game":["Consistent with the bottom goal.."],"pit":{}}},"4142":{"teamName":"Something","teamHome":"No Record","teamNumber":4142,"teamColour":"#ffffff","teamRecord":{"win":0,"loss":0,"tie":0},"scout":{"game":["Consistent with the bottom goal.."],"pit":{"WheelType":"Air","GoalType":"High","HighGoals":"99","LowGoals":"99","MainPoint":"Gears","ClimbRope":"Yes"}}},"5678":{"teamName":"No Record","teamHome":"No Record","teamNumber":5678,"teamColour":"#ffffff","teamRecord":{"win":0,"loss":0,"tie":0},"scout":{"pit":{"MainPoint":"Boiler","ClimbRope":"Yes"},"game":{}}},"5752":{"teamName":"BevBotics","teamNumber":5752,"teamHome":"Beverly, MA","teamColour":"#E67E22","teamRecord":{"win":10,"loss":17,"tie":1},"scout":{"game":["Consistent with the bottom goal.."],"pit":{"WheelType":"Memes","GoalType":"High","HighGoals":"420","LowGoals":"99","MainPoint":"Gears","ClimbRope":"Yes"}}},"null":{"teamName":{"win":0,"loss":0,"tie":0},"teamHome":"No Record","teamNumber":null,"scout":{"pit":{},"game":{}},"teamColour":"#ffffff","teamRecord":{"win":0,"loss":0,"tie":0}}},"competitions":{"TestCompetition":{"name":"Test-Competition","participants":[5752,1,1234,5678,312,931,4142],"criteria":[{"id":"MainPoint","display":"Primary scoring method","question":"How does this robot score points?","type":"radio","options":["Boiler","Gears"]},{"id":"ClimbRope","display":"Ability to climb","question":"Can this robot climb the rope at the end of a match?","type":"radio","options":["Yes","No"]}]},"Competition2":{"name":"competition number two","participants":[5752,1234,231,99,931]}}}
+{
+    "teams": {
+        "1": {
+            "teamName": "The Juggernauts",
+            "teamNumber": 1,
+            "teamHome": "Pontiac, MI",
+            "teamColour": "#F4D03F",
+            "teamRecord": {
+                "win": 14,
+                "loss": 12,
+                "tie": 1
+            },
+            "scout": {
+                "pit": {
+                    "MainPoint": "Boiler",
+                    "ClimbRope": "No"
+                },
+                "game": {}
+            }
+        },
+        "312": {
+            "scout": {
+                "pit": {
+                    "MainPoint": "Gears",
+                    "ClimbRope": "No"
+                }
+            }
+        },
+        "931": {
+            "scout": {
+                "pit": {
+                    "MainPoint": "Boiler",
+                    "ClimbRope": "No"
+                },
+                "game": {}
+            }
+        },
+        "1234": {
+            "teamName": "Test-Team-Name",
+            "teamNumber": "Test-Team-Number",
+            "teamHome": "Test-Team-Home",
+            "teamColour": "#D2B4DE",
+            "teamRecord": {
+                "win": 123,
+                "loss": 456,
+                "tie": 789
+            },
+            "scout": {
+                "game": ["Consistent with the bottom goal.."],
+                "pit": {}
+            }
+        },
+        "4142": {
+            "teamName": "Something",
+            "teamHome": "No Record",
+            "teamNumber": 4142,
+            "teamColour": "#ffffff",
+            "teamRecord": {
+                "win": 0,
+                "loss": 0,
+                "tie": 0
+            },
+            "scout": {
+                "game": ["Consistent with the bottom goal.."],
+                "pit": {
+                    "WheelType": "Air",
+                    "GoalType": "High",
+                    "HighGoals": "99",
+                    "LowGoals": "99",
+                    "MainPoint": "Gears",
+                    "ClimbRope": "Yes"
+                }
+            }
+        },
+        "5678": {
+            "teamName": "No Record",
+            "teamHome": "No Record",
+            "teamNumber": 5678,
+            "teamColour": "#ffffff",
+            "teamRecord": {
+                "win": 0,
+                "loss": 0,
+                "tie": 0
+            },
+            "scout": {
+                "pit": {
+                    "MainPoint": "Boiler",
+                    "ClimbRope": "Yes"
+                },
+                "game": {}
+            }
+        },
+        "5752": {
+            "teamName": "BevBotics",
+            "teamNumber": 5752,
+            "teamHome": "Beverly, MA",
+            "teamColour": "#E67E22",
+            "teamRecord": {
+                "win": 10,
+                "loss": 17,
+                "tie": 1
+            },
+            "scout": {
+                "game": ["Consistent with the bottom goal.."],
+                "pit": {
+                    "WheelType": "Testing",
+                    "GoalType": "High",
+                    "HighGoals": "99999",
+                    "LowGoals": "99",
+                    "MainPoint": "Gears",
+                    "ClimbRope": "Yes"
+                }
+            }
+        },
+        "null": {
+            "teamName": {
+                "win": 0,
+                "loss": 0,
+                "tie": 0
+            },
+            "teamHome": "No Record",
+            "teamNumber": null,
+            "scout": {
+                "pit": {},
+                "game": {}
+            },
+            "teamColour": "#ffffff",
+            "teamRecord": {
+                "win": 0,
+                "loss": 0,
+                "tie": 0
+            }
+        }
+    },
+    "competitions": {
+        "TestCompetition": {
+            "name": "Test-Competition",
+            "participants": [5752, 1, 1234, 5678, 312, 931, 4142],
+            "criteria": [{
+                "id": "MainPoint",
+                "display": "Primary scoring method",
+                "question": "How does this robot score points?",
+                "type": "radio",
+                "options": ["Boiler", "Gears"]
+            }, {
+                "id": "ClimbRope",
+                "display": "Ability to climb",
+                "question": "Can this robot climb the rope at the end of a match?",
+                "type": "radio",
+                "options": ["Yes", "No"]
+            }]
+        },
+        "Competition2": {
+            "name": "competition number two",
+            "participants": [5752, 1234, 231, 99, 931]
+        }
+    }
+}
