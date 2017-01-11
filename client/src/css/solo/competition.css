@@ -15,12 +15,8 @@ span{ transition: 0.5s ease; }
   padding: 8px;
   border: 1px solid black;
 
-  background-color: white;
+  background-color: #D6DBDF;
   /*background: linear-gradient(90deg, rgba(123, 69, 34, 0), rgba(43, 214, 11, 1)200%);*/
-
-  background-image: -webkit-linear-gradient(right, #2C3E50, #FD746C);
-  background-image: -o-linear-gradient(right, #2C3E50, #FD746C);
-  background-image: linear-gradient(to left, #2C3E50, #FD746C);
 
   margin: 8px auto;
 
@@ -29,7 +25,7 @@ span{ transition: 0.5s ease; }
 
 .teams-number{
   opacity: 0.3;
-  position: fixed;
+  position: absolute;
   display: block;
 
   font-weight: 600;

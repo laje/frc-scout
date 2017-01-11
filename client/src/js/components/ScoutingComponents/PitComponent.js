@@ -6,7 +6,9 @@ export default class PitBase extends React.Component {
   constructor(props){
     super(props);
 
+    this.submitData = this.submitData.bind(this)
     this.state = {items: {}}
+    window.pitData = {pitTeams: [], chosenOptions: {}, currentSelectedTeam: null}
 
     fetch('http://localhost:8081/read?competition=' + "TestCompetition")
       .then(
@@ -23,7 +25,11 @@ export default class PitBase extends React.Component {
 
             let teamComponents = []
             for( let i = 0; i < teamsArr.length; i++ ){
-              teamComponents.push(<TeamListElem key={i} team={teamsArr[i]} />)
+              window.pitData.pitTeams.push(teamsArr[i])
+              teamComponents.push(<TeamListElem
+                key={i}
+                team={teamsArr[i]}
+              />)
             }
 
             let questionsComponents = []
@@ -47,6 +53,41 @@ export default class PitBase extends React.Component {
     });
   }
 
+  submitData(){
+    let query = JSON.stringify(window.pitData)
+
+    fetch('http://localhost:8081/write?q=' + query)
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Error: ' +
+              response.status);
+            return;
+          }
+          response.json().then(function(data) {
+            if(data.success){
+              document.getElementById("successnotifier").className = "notifier notify"
+              setTimeout(() => {
+                document.getElementById("successnotifier").className = "notifier unnotify"
+              }, 3500)
+            } else {
+              document.getElementById("failurenotifier").className = "notifier notify"
+              setTimeout(() => {
+                document.getElementById("failurenotifier").className = "notifier unnotify"
+              }, 3500)
+            }
+          }.bind(this));
+        }.bind(this)
+      )
+      .catch(function(err) {
+        console.log('Fetch Error: ', err);
+        document.getElementById("failurenotifier").className = "notifier notify"
+        setTimeout(() => {
+          document.getElementById("failurenotifier").className = "notifier unnotify"
+        }, 3500)
+      });
+  }
+
   render() {
     return (
       <div>
@@ -61,8 +102,12 @@ export default class PitBase extends React.Component {
             {this.state.teams}
           </div>
         </div>
-
         {this.state.questions}
+        <div id="pit-submission-button-container" onClick={this.submitData}>
+          <span id="pit-submission-button">
+            Submit Data
+          </span>
+        </div>
       </div>
     );
   }

@@ -61,7 +61,7 @@ export default class CompetitionBase extends React.Component {
 
     // Give teams with a defined team colour a background style to represent it.
     // If a team doesn't have one, this style will be marked as invalid and
-    // the default green colour will be used instead.
+    // the default colour will be used instead.
 
     let style = {
       background: 'linear-gradient(90deg, rgba(0, 0, 0, 0), ' + this.state.teamColour + ' 200%)',

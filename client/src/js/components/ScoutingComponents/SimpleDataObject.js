@@ -51,7 +51,38 @@ export default class SimpleData extends React.Component {
 
   pushNewData(){
     //TODO: ADD A POST REQ TO MODIFY THE DATABSE. THIS DOES NOTHING RIGHT NOW.
-    alert("This doesn't work! Your change of " + this.state.content.elem + " to " + this.state.content.data + " did not go through!")
+    let query = JSON.stringify({element: this.state.content.elem, value: this.state.content.data, teamNumber: this.props.data.teamNumber})
+
+    fetch('http://localhost:8081/write?e=true&q=' + query)
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Error: ' +
+              response.status);
+            return;
+          }
+          response.json().then(function(data) {
+            if(data.success){
+              document.getElementById("successnotifier").className = "notifier notify"
+              setTimeout(() => {
+                document.getElementById("successnotifier").className = "notifier unnotify"
+              }, 3500)
+            } else {
+              document.getElementById("failurenotifier").className = "notifier notify"
+              setTimeout(() => {
+                document.getElementById("failurenotifier").className = "notifier unnotify"
+              }, 3500)
+            }
+          }.bind(this));
+        }.bind(this)
+      )
+      .catch(function(err) {
+        console.log('Fetch Error: ', err);
+        document.getElementById("failurenotifier").className = "notifier notify"
+        setTimeout(() => {
+          document.getElementById("failurenotifier").className = "notifier unnotify"
+        }, 3500)
+      });
   }
 
   render() {

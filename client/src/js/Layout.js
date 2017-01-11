@@ -12,6 +12,12 @@ export default class Layout extends React.Component {
         <div id="app-content">
           { this.props.children }
         </div>
+        <div class="notifier" id="successnotifier">
+          Submission Successful!
+        </div>
+        <div class="notifier" id="failurenotifier">
+          Submission Failure, check the console!
+        </div>
         <Footer />
       </div>
     );

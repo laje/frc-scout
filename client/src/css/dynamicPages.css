@@ -9,12 +9,6 @@ By Dan Lynch
 for BHS FIRST Robotics Competition Team 5752
 */
 
-#fake-discalimer:before{
-  content: 'Not all of these temas actually exist. Keep that in mind.';
-  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
-}
-
-
 h1.dynamic-page-header{
   transition: 0.5s ease;
 }

@@ -20,6 +20,7 @@ export default class CurrentData extends React.Component {
             return;
           }
           response.json().then(function(data) {
+            console.log(data)
             let scoutData = data.scout.pit
             winLoss = (data.teamRecord.win + "/" + data.teamRecord.loss + "/" + data.teamRecord.tie);
             for(let i = 0; i < Object.keys(scoutData).length; i++){
@@ -27,7 +28,8 @@ export default class CurrentData extends React.Component {
               compEls.push(<SimpleData key={i} data={{
                 'id': i,
                 'elem': item,
-                'data': scoutData[item]
+                'data': scoutData[item],
+                'teamNumber': this.props.query.t
               }}/>);
             }
 
