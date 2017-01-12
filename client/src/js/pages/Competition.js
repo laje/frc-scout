@@ -6,17 +6,21 @@ export default class Competition extends React.Component {
   constructor(props){
     super(props)
 
-    this.state = {rows: <p>No database connection...</p>, testing: 100}
+    this.state = {rows: <p>No database connection...</p>, anl: { pit: 33, game: 44, testing: 55 }}
 
     let participants = []
     let rows = []
+
+    let pitVal = 0
+    let gameVal = 0
+
     let comp = 'TestCompetition'
 
     if(this.props.location.query.competition){
       comp = this.props.location.query.competition;
     }
 
-    let analyticData = {}
+    let analyticData = { ttlPit: 0, ttlGame: 0}
 
     fetch('http://localhost:8081/read?competition=' + comp)
     .then(
@@ -41,35 +45,15 @@ export default class Competition extends React.Component {
       console.log('Fetch Error: ', err);
     });
 
-    // ====== IN PROGRESS: ACTUAL DATA IN THE ANALYTIC SECTION =======
-    // let totalItems = Object.keys(analyticData.comp)
-    //
-    // for(let i = 0; i < Object.keys(analyticData.partic); i++){
-    //   fetch('http://localhost:8081/read?team=' + analyticData.team)
-    //   .then(
-    //     function(response) {
-    //       if (response.status !== 200) {
-    //         console.log('Error: ' +
-    //           response.status);
-    //         return;
-    //       }
-    //
-    //       response.json().then(function(data) {
-    //
-    //       }.bind(this));
-    //     }.bind(this)
-    //   )
-    //   .catch(function(err) {
-    //     console.log('Fetch Error: ', err);
-    //   });
-    //}
-
     setTimeout(() => {
-      this.setState({"testing": 55})
-    , 0})
-
+      this.setState({anl:{
+        testing: 88,
+        pit: 99,
+        game: 22
+      }})
+      console.log(this.state)
+    }, 2000)
   }
-
 
   render() {
     return (
@@ -89,14 +73,14 @@ export default class Competition extends React.Component {
             </h2>
             <div class='h-split-container'>
               <div class="horiz-split">
-                <HalfCircle element="Overall Completion" percent={this.state.testing} color="#85929E"/>
-                <HalfCircle element="Pit Completion" percent='2.379525' color="#EB984E"/>
-                <HalfCircle element="Game Completion" percent='45' color="#F5B041"/>
+                <HalfCircle element="Overall Completion" percent={this.state.anl.testing} color="#85929E"/>
+                <HalfCircle element="Pit Completion" percent={this.state.anl.pit} color="#EB984E"/>
+                <HalfCircle element="Game Completion" percent={this.state.anl.game} color="#F5B041"/>
               </div>
               <div class="horiz-split">
-                <HalfCircle element="Practical Allies" percent='98.123' color="#5DADE2"/>
-                <HalfCircle element="Difficult Opponents" percent='35.379525' color="#E74C3C"/>
-                <HalfCircle element="Some other goal" percent='29' color="#78C8C5"/>
+                <HalfCircle element="Practical Allies" percent='0' color="#5DADE2"/>
+                <HalfCircle element="Difficult Opponents" percent='0' color="#E74C3C"/>
+                <HalfCircle element="Some other goal" percent='0' color="#78C8C5"/>
               </div>
             </div>
           </div>
