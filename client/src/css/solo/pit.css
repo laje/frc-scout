@@ -25,6 +25,10 @@
   border-radius: 2px;
 }
 
+.question-group-c{
+  display: inline-block;
+}
+
 .title-group{
   margin-bottom: 8px;
   padding-bottom: 2px;
