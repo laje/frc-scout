@@ -68,7 +68,7 @@ cleanDbData = (data, team) ->
 
 writeDb = (data) ->
   options = data.chosenOptions
-  team = data.currentSelectedTeam
+  team = data.sTeamNumber
 
   dbData = JSON.parse(fs.readFileSync("#{__dirname}/db.json", 'utf8', (err, data) -> if err then console.log(err)))
   dbData = cleanDbData(dbData, team)
@@ -105,11 +105,10 @@ ex.post('/write', (req, res) ->
 
 ##"DELETE" AN ENTRY
 psDelDb = (d) ->
-
   r = JSON.parse(fs.readFileSync("#{__dirname}/db.json", 'utf8', (err, data) -> if err then console.log(err)))
 
   if d.type is "comp"
-    hideComp(d.r0)
+    # hideComp(d.r0)
   else if d.type is "team"
     if d.r1?
       if d.r2?

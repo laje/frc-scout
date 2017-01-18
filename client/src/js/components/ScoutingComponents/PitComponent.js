@@ -54,6 +54,7 @@ export default class PitBase extends React.Component {
   }
 
   submitData(){
+    window.pitData.sTeamNumber = window.currentSelectedTeam
     let query = JSON.stringify(window.pitData)
 
     fetch('http://localhost:8081/write?q=' + query)

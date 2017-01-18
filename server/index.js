@@ -129,7 +129,7 @@
   writeDb = function(data) {
     var dbData, i, len, option, options, ref, team;
     options = data.chosenOptions;
-    team = data.currentSelectedTeam;
+    team = data.sTeamNumber;
     dbData = JSON.parse(fs.readFileSync(__dirname + "/db.json", 'utf8', function(err, data) {
       if (err) {
         return console.log(err);
@@ -191,7 +191,7 @@
       }
     }));
     if (d.type === "comp") {
-      hideComp(d.r0);
+
     } else if (d.type === "team") {
       if (d.r1 != null) {
         if (d.r2 != null) {
