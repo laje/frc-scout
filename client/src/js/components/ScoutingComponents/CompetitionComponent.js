@@ -15,10 +15,12 @@ export default class CompetitionBase extends React.Component {
           return;
         }
         response.json().then(function(data) {
-          if(!data.bad_team){
+          if(data.teamName != "No Record"){
             this.setState(data)
           }
           else{
+            let x = data.teamNumber
+            console.log(data.bad_team)
             /*  console.log("Bad Team: " + data.bad_team + "!")  */
             // Alternate team lookup, access The Blue Alliance's
             // database if there isn't any data on record.
@@ -26,8 +28,9 @@ export default class CompetitionBase extends React.Component {
             // or just flat out wrong. For example, our team's name is
             // "2015 FRC Rookie Grant / Fiduciary Trust / Beverly Education Foundation & Beverly High"
             //So ideally, we use data that we collect ourselves.
-            fetch('https://www.thebluealliance.com/api/v2/team/frc' + data.bad_team + '?X-TBA-App-Id=frc5752:scouting-system:beta')
+            fetch('https://www.thebluealliance.com/api/v2/team/frc' + x + '?X-TBA-App-Id=frc5752:scouting-system:beta')
             .then(function(response){
+              console.log(response)
               response.json().then(function(data){
                 let tbaData = {
                   //indication that it's not from our db.
