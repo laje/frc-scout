@@ -1,6 +1,7 @@
 express = require('express')
 ex = express()
 fs = require('fs')
+teamData = require('./teamvalue.coffee')
 
 #(Allow Cross Origin Reference - Potentially important for iOS app)
 ex.use( (req, res, next) ->
@@ -26,14 +27,15 @@ readDb = (url = "all", team, comp) ->
 
 dbTeam = (data, team="all") ->
   if team isnt "all" then data = cleanDbData(data, team)
-
-  if team is "all" then return data.teams
-  else if data.teams["#{team}"].teamName is "No Record" and !data.teams["#{team}"].scout? then return({bad_team: team})
-  else return data.teams["#{team}"]
+  dt = data.teams
+  if team is "all" then return dt
+  else if dt["#{team}"].teamName is "No Record" and !dt["#{team}"].scout? then return({bad_team: team})
+  else return dt["#{team}"]
 
 dbComp = (data, comp="all") ->
+  dc = data.competitions["#{comp}"]
   if comp is "all" then return data.competitions
-  else return data.competitions["#{comp}"]
+  else return dc
 
 ex.get('/read', (req, res) ->
   res.end(JSON.stringify(getItems(req.query)))
@@ -122,6 +124,18 @@ psDelDb = (d) ->
 
 ex.delete('/rm/:type/:r0/:r1?/:r2?/:r3?', (req, res) ->
   res.end(JSON.stringify(psDelDb(req.params)))
+)
+
+##Values of a Team (Individual)
+ex.get('/value/:team/:values?/:ignore?', (req, res) ->
+  if req.params.values? or req.params.values is {} then x = req.params.values else x = null
+  if req.params.ignore? then y = req.params.ignore.split(",") else y = null
+  res.end(JSON.stringify({"value": teamData.indVal(req.params.team, x, y)}))
+)
+
+##Compare two teams against eachother
+ex.get('/compare/:team1/:team2', (req, res) ->
+  res.end(JSON.stringify(teamData.compareTeams(req.params.team1, req.params.team2)))
 )
 
 server = ex.listen(8081, () ->
