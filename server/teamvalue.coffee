@@ -4,8 +4,8 @@ exports.indVal = (t, v, i) ->
   if v? then v = JSON.parse(v)
   return getIndividualValue(t, v, i)
 
-exports.compareTeams = (a, b) ->
-  return checkCompliment(a, b)
+exports.compareTeams = (a, b, v, i) ->
+  return checkCompliment(a, b, v, i)
 
 getPitData = (team) ->
   j = JSON.parse(fs.readFileSync("#{__dirname}/db.json", 'utf8', (err, data) -> if err then console.log(err)))
@@ -20,7 +20,10 @@ contains = (itm, arr) ->
 #These are the default values - I really don't know what we should prioritize, but I sort of just made these numbers up.
 getIndividualValue = (team, vals = {"ClimbRope": 50,"LowGoal": 10,"HighGoal": 25,"GearScore": 20,"HopperCollect": 15,"CrossAuto": 15}, ignored=[]) ->
     data = getPitData(team)
+
     individualValue = 0
+    valueItems = []
+
     for itm in Object.keys(data)
       if itm is "hidden" then return {"Hidden": true}
       if !contains(itm, ignored)
@@ -32,9 +35,11 @@ getIndividualValue = (team, vals = {"ClimbRope": 50,"LowGoal": 10,"HighGoal": 25
           when "Both" then 2.25
           when "No" then 0
           else 1
-        if vals[itm]? then individualValue += vals[itm] * multiplier
+        if vals[itm]?
+          individualValue += vals[itm] * multiplier
+          valueItems.push({"BaseValue": vals[itm], "Multiplier": multiplier, "Final": vals[itm] * multiplier})
         else console.log("ERROR: No value specified for item '#{itm}' (#{team})")
-    return individualValue
+    return {"Value": individualValue, "Components": valueItems}
 
 checkMultiData = (data, itm, condition) ->
   if contains(data[0][itm], condition) then data[0][itm] = true
@@ -82,5 +87,5 @@ checkCompliment = (team1, team2, vals = {"ClimbRope": 50,"LowGoal": 10,"HighGoal
         compat += vals[itm]
         diff.push({ "element": itm, "values": [data[0][itm], data[1][itm]], "award": vals[itm] })
 
-  res = {"compatibility": compat, "simmilar": same, "different": diff}
+  res = {"compatibility": compat, "similar": same, "different": diff}
   return res

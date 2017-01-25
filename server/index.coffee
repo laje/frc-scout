@@ -130,12 +130,14 @@ ex.delete('/rm/:type/:r0/:r1?/:r2?/:r3?', (req, res) ->
 ex.get('/value/:team/:values?/:ignore?', (req, res) ->
   if req.params.values? or req.params.values is {} then x = req.params.values else x = null
   if req.params.ignore? then y = req.params.ignore.split(",") else y = null
-  res.end(JSON.stringify({"value": teamData.indVal(req.params.team, x, y)}))
+  res.end(JSON.stringify(teamData.indVal(req.params.team, x, y)))
 )
 
 ##Compare two teams against eachother
-ex.get('/compare/:team1/:team2', (req, res) ->
-  res.end(JSON.stringify(teamData.compareTeams(req.params.team1, req.params.team2)))
+ex.get('/compare/:team1/:team2/:values?/:ignore?', (req, res) ->
+  if req.params.values? or req.params.values is {} then x = req.params.values else x = null
+  if req.params.ignore? then y = req.params.ignore.split(",") else y = null
+  res.end(JSON.stringify(teamData.compareTeams(req.params.team1, req.params.team2, x, y)))
 )
 
 server = ex.listen(8081, () ->
