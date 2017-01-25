@@ -25,6 +25,7 @@ this will return a json object.
   "Value": 165,
   "Components": [
     {
+      "Element": MainPoint
       "BaseValue": 50,
       "Multiplier": 1,
       "Final": 50
@@ -36,7 +37,7 @@ As seen, the request includes a value, and an array of objects which go into det
 
 A more complex request may look like this
 ```javascript
-~/value/5752/{"ClimbRope":999, "GearScore":123}/["GearScore"]
+~/value/5752/{"ClimbRope":999, "GearScore":123}/GearScore
 ```
 This request would evaluate our team on one objective: `ClimbRope`, since the only other value specified is `GearScore`, and that value is also ignored.
 

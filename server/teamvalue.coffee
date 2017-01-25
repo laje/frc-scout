@@ -37,7 +37,7 @@ getIndividualValue = (team, vals = {"ClimbRope": 50,"LowGoal": 10,"HighGoal": 25
           else 1
         if vals[itm]?
           individualValue += vals[itm] * multiplier
-          valueItems.push({"BaseValue": vals[itm], "Multiplier": multiplier, "Final": vals[itm] * multiplier})
+          valueItems.push({"Element":itm, "BaseValue": vals[itm], "Multiplier": multiplier, "Final": vals[itm] * multiplier})
         else console.log("ERROR: No value specified for item '#{itm}' (#{team})")
     return {"Value": individualValue, "Components": valueItems}
 
