@@ -1,6 +1,6 @@
-#Accessing Data
+## Accessing Data
 An `HTTP GET` request can be sent to the server in order to easily retrieve data from the server. The response will always be in `text/json`. There are two ways to retrieve data, shown as follows.
-##Using Query Strings
+### Using Query Strings
 A request can be sent to `~/read`, with the following parameters specified.
 + `team` or `competition`, set equal to the desired team or competition. Alternatively, *all* can be requested, returning the entire set of teams or competitions, respectively.
 + If no parameters are specified in the query, the entire data set will be returned.
@@ -17,34 +17,27 @@ will return
   "teamHome": "Beverly, MA",
   "teamColour": "#E67E22",
   "teamRecord": {
-    "win": 10,
-    "loss": 17,
-    "tie": 1
+    "win": 0,
+    "loss": 0,
+    "tie": 0
   },
   "scout": {
-    "game": [
-      "Consistent with the bottom goal.."
-    ],
+    "game": [],
     "pit": {
-      "MainPoint": {
-        "del": "Gears"
-      },
       "ClimbRope": "Yes",
-      "SomethingElse": "4x8 (Standard)",
-      "hidden": true
+      "OtherElem": ...
     }
   },
-  "hidden": true
 }
 ```
-##Using URL
+### Using URL
 Any request to `~/read2` will not accept query string parameters. Instead, requests should be formatted like so: `~/read2/[type]/[spec]`.
 Required parameters are naturally:
 
 + `type`, either *comp* or *team*. Each doing exactly what you would expect.
 + `spec`, the specific element to target. If `team` is the specified type, then a *team number* is expected. If `comp` is specified, a *competition name* is expected.
 
-#Adding New Data and Modifying Existing Data
+## Adding New Data and Modifying Existing Data
 >As of current, only scouting data can be modified. *competition* and *team* data **cannot** be modified.
 
 An `HTTP GET` or `POST` request to `~/write` can be made to write to the database. If you do this in any way, then the structure for the specified team will be created if it does not exist (Currently immutatable elements included).
@@ -68,11 +61,11 @@ Example: A team has been scouted and the data for `GearAuto` needs to be changed
 ```
 This will modify the correct values.
 
-#Mark Values as Hidden
-Complete removal is essentially pointless. There should not be any situation where data is deleted. It can simply be overwritten as specified previously. If, for whatever, reason, this needs to be done, a dataset and all of it's children can be marked as hidden.
+## Mark Values as Hidden
+Complete removal is essentially pointless. There should not be any situation where data is deleted. It can simply be overwritten as specified previously. If, for whatever, reason, a hide needs to be executed, a dataset and all of it's children can be marked as hidden.
 
 An `HTTP DELETE` request must be sent to `~/rm`.
-The expected format is `~/rm/[type]/[param1]/...`.
+The expected format is `~/rm/[type]/[param1]/...`
 Up to four additional parameters can be specified, though only one is required.
 
 + `Type` must be either *comp* or *team*.
