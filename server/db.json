@@ -52,7 +52,7 @@
             "scout": {
                 "pit": {
                     "MainPoint": "Boiler",
-                    "ClimbRope": "Yes",
+                    "ClimbRope": "Yes"
                 },
                 "game": {}
             },

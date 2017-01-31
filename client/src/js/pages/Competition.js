@@ -22,7 +22,7 @@ export default class Competition extends React.Component {
 
     let analyticData = { ttlPit: 0, ttlGame: 0}
 
-    fetch('http://localhost:8081/read?competition=' + comp)
+    fetch('http://' + window.hostName + ':8081/read?competition=' + comp)
     .then(
       function(response) {
         if (response.status !== 200) {

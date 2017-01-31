@@ -11,7 +11,7 @@ export default class CurrentData extends React.Component {
     let compEls = [];
     let winLoss = "[   ]"
 
-    fetch('http://localhost:8081/read?team=' + this.props.query.t)
+    fetch('http://' + window.hostName + ':8081/read?team=' + this.props.query.t)
       .then(
         function(response) {
           if (response.status !== 200) {

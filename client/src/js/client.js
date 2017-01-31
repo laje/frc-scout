@@ -17,6 +17,8 @@ import TeamInput from "./pages/TeamInput"
 
 const app = document.getElementById('app')
 
+window.hostName = "127.0.0.1"
+
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
