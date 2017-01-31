@@ -10,13 +10,12 @@ export default class PitBase extends React.Component {
     this.state = {items: {}}
     window.pitData = {pitTeams: [], chosenOptions: {}, currentSelectedTeam: null}
 
-    fetch('http://localhost:8081/read?competition=' + "TestCompetition")
+    fetch('http://localhost:8081/read?competition=' + "Reading")
       .then(
         function(response) {
           if (response.status !== 200) {
             console.log('Error: ' +
               response.status);
-              console.log(response)
             return;
           }
           response.json().then(function(data) {
@@ -24,12 +23,20 @@ export default class PitBase extends React.Component {
             let questionsObj = data.criteria
 
             let teamComponents = []
-            for( let i = 0; i < teamsArr.length; i++ ){
-              window.pitData.pitTeams.push(teamsArr[i])
-              teamComponents.push(<TeamListElem
-                key={i}
-                team={teamsArr[i]}
-              />)
+            if(this.props.t == undefined){
+              for( let i = 0; i < teamsArr.length; i++ ){
+
+                window.pitData.pitTeams.push(teamsArr[i])
+                teamComponents.push(<TeamListElem
+                  key={i}
+                  team={teamsArr[i]}
+                />)
+              }
+            } else {
+              window.pitData.currentSelectedTeam = this.props.t
+              teamComponents.push(<div class='pit-preselect'>
+                <h3>Prespecified team: {this.props.t}</h3>
+              </div>)
             }
 
             let questionsComponents = []

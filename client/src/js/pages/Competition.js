@@ -14,7 +14,7 @@ export default class Competition extends React.Component {
     let pitVal = 0
     let gameVal = 0
 
-    let comp = 'TestCompetition'
+    let comp = 'Reading'
 
     if(this.props.location.query.competition){
       comp = this.props.location.query.competition;
@@ -51,7 +51,6 @@ export default class Competition extends React.Component {
         pit: 99,
         game: 22
       }})
-      console.log(this.state)
     }, 2000)
   }
 

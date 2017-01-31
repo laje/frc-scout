@@ -20,8 +20,6 @@ export default class CompetitionBase extends React.Component {
           }
           else{
             let x = data.teamNumber
-            console.log(data.bad_team)
-            /*  console.log("Bad Team: " + data.bad_team + "!")  */
             // Alternate team lookup, access The Blue Alliance's
             // database if there isn't any data on record.
             // This isn't ideal, since they are often out of date
@@ -30,7 +28,6 @@ export default class CompetitionBase extends React.Component {
             //So ideally, we use data that we collect ourselves.
             fetch('https://www.thebluealliance.com/api/v2/team/frc' + x + '?X-TBA-App-Id=frc5752:scouting-system:beta')
             .then(function(response){
-              console.log(response)
               response.json().then(function(data){
                 let tbaData = {
                   //indication that it's not from our db.

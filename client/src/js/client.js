@@ -13,6 +13,7 @@ import Game from "./pages/Game"
 import Pit from "./pages/Pit"
 
 import Scouter from "./pages/Scouter"
+import TeamInput from "./pages/TeamInput"
 
 const app = document.getElementById('app')
 
@@ -27,6 +28,7 @@ ReactDOM.render(
       <Route path="game" component={Game}></Route>
 
       <Route path="scouter" component={Scouter}></Route>
+      <Route path="teamin" component={TeamInput}></Route>
     </Route>
   </Router>,
 app);

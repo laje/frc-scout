@@ -63,3 +63,29 @@ for BHS FIRST Robotics Competition Team 5752
   color: #E5E7E9;
   background-color: #229954;
 }
+
+.scout-btn{
+  margin: 8px;
+  padding: 4px;
+}
+
+.scout-btn > .c{
+  padding: 3px;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.scout-btn > .c:hover{
+  /*same as selected team in pitscouter*/
+  background-color: rgb(62, 219, 178);
+  cursor: pointer;
+}
+
+.scouter-head-team{
+  border-radius: 8px;
+  border: 1px solid black;
+  margin: 0 8px;
+  padding: 4px 6px;
+  /*fix for mobile*/
+  line-height: 42px;
+}

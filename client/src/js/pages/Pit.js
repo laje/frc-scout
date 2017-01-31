@@ -6,7 +6,7 @@ export default class Pit extends React.Component {
     return (
       <div class='dynamic-page-container'>
         <h1 class='dynamic-page-header' id='header-pit'> Pit Scout </h1>
-        <PitBase />
+        <PitBase t={this.props.location.query.t}/>
       </div>
     );
   }
