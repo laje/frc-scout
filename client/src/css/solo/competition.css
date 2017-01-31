@@ -65,3 +65,26 @@ span{ transition: 0.5s ease; }
 .h-split-container{ display: flex; }
 .horiz-split{ width: 50%; }
 .svg-container{ text-align: center; }
+
+@media screen and (max-width: 800px) {
+    #analytic {
+      display: none;
+    }
+    .horiz-split {
+      width: 100%;
+    }
+
+    /* LAZY CODE ALERT! THIS SHOULD BE IN STATICCOMPONENTS.CSS!
+       It's important, though, since it makes the site look okay on mobile.
+    */
+    .header-item{
+      font-size: 18px;
+      line-height: 48px;
+    }
+    header{
+      height: 48px;
+    }
+    .header-item.arrow {
+      display: none;
+    }
+}
