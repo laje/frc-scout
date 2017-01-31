@@ -1,6 +1,7 @@
 #pit-teamlist{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .pit-teamlist-elem{
@@ -86,6 +87,8 @@
   margin: 22px;
   padding: 12px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.45);
+
+  z-index: 99;
 }
 
 .notify{
