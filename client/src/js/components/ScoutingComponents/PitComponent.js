@@ -10,7 +10,7 @@ export default class PitBase extends React.Component {
     this.state = {items: {}}
     window.pitData = {pitTeams: [], chosenOptions: {}, currentSelectedTeam: null}
 
-    fetch('http://' + window.hostName + ':8081/read?competition=' + "Reading")
+    fetch('http://' + window.url + '/read?competition=' + "Reading")
       .then(
         function(response) {
           if (response.status !== 200) {
@@ -64,7 +64,7 @@ export default class PitBase extends React.Component {
     window.pitData.sTeamNumber = window.pitData.currentSelectedTeam
     let query = JSON.stringify(window.pitData)
 
-    fetch('http://' + window.hostName + ':8081/write?q=' + query)
+    fetch('http://' + window.url + '/write?q=' + query)
       .then(
         function(response) {
           if (response.status !== 200) {

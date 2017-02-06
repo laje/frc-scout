@@ -6,7 +6,7 @@ export default class CompetitionBase extends React.Component {
 
     this.state = {teamName: "[unknown]", teamHome: "[unknown]", teamRecord:{win: "?", loss: "?"}}
 
-    fetch('http://' + window.hostName + ':8081/read?team=' + this.props.teamNumber)
+    fetch('http://' + window.url + '/read?team=' + this.props.teamNumber)
     .then(
       function(response) {
         if (response.status !== 200) {

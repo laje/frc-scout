@@ -17,7 +17,14 @@ import TeamInput from "./pages/TeamInput"
 
 const app = document.getElementById('app')
 
-window.hostName = "127.0.0.1"
+//Define the url for the server
+serverUrl = {
+  host = "127.0.0.1",
+  url = "/frc/api.php",
+  port = ""
+}
+
+window.url = serverUrl.host + serverUrl.url + serverUrl.port
 
 ReactDOM.render(
   <Router history={hashHistory}>
