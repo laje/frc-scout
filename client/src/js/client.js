@@ -19,7 +19,7 @@ const app = document.getElementById('app')
 
 //Define the url for the server
 let serverUrl = {
-  host:"127.0.0.1",
+  host:"laje.ru",
   url:"/frc-scout/api.php",
   port:""
 }

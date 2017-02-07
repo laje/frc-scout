@@ -53,7 +53,7 @@ export default class SimpleData extends React.Component {
     //TODO: ADD A POST REQ TO MODIFY THE DATABSE. THIS DOES NOTHING RIGHT NOW.
     let query = JSON.stringify({element: this.state.content.elem, value: this.state.content.data, teamNumber: this.props.data.teamNumber})
 
-    fetch('http://' + window.url + '/write?e=true&q=' + query)
+    fetch('https://' + window.url + '/write?e=true&q=' + query)
       .then(
         function(response) {
           if (response.status !== 200) {

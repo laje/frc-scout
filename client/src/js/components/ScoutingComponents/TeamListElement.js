@@ -7,7 +7,7 @@ export default class TeamListElem extends React.Component {
 
     this.state = {TeamName: ""}
 
-    let TeamName = fetch('http://' + window.url + '/read?team=' + this.props.team)
+    let TeamName = fetch('https://' + window.url + '/read?team=' + this.props.team)
       .then(
         function(response) {
           if (response.status !== 200) {
