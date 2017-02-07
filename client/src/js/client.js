@@ -19,9 +19,9 @@ const app = document.getElementById('app')
 
 //Define the url for the server
 serverUrl = {
-  host = "127.0.0.1",
-  url = "/frc-scout/api.php",
-  port = ""
+  host:"127.0.0.1",
+  url:"/frc-scout/api.php",
+  port:""
 }
 
 window.url = serverUrl.host + serverUrl.url + serverUrl.port
