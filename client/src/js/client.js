@@ -20,7 +20,7 @@ const app = document.getElementById('app')
 //Define the url for the server
 serverUrl = {
   host = "127.0.0.1",
-  url = "/frc/api.php",
+  url = "/frc-scout/api.php",
   port = ""
 }
 
