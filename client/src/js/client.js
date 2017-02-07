@@ -18,7 +18,7 @@ import TeamInput from "./pages/TeamInput"
 const app = document.getElementById('app')
 
 //Define the url for the server
-serverUrl = {
+let serverUrl = {
   host:"127.0.0.1",
   url:"/frc-scout/api.php",
   port:""
