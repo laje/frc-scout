@@ -1,6 +1,11 @@
 <?php
+
 //Define the name of the api forwarder here. Literally this file's name. It shouldn't change, to be honest.
 $filename = 'api.php';
+
+//Update to allow CORs. I didn't notice this until I tried to do something with another app.
+//I think that this is all that's needed. Hopefully it doesn't cause any trouble.
+header("Access-Control-Allow-Origin: *");
 
 $ch = curl_init();
 
