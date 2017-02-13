@@ -1,8 +1,8 @@
 # Accessing Analytic Data
 There are two simple functions in the analytic component here. One will give a value that represents an individual team's value, the other will compare two teams and give a number representing their compatibility.
 
-+ [Individual](/#Individual)
-+ [Comparison](/#Compare)
++ [Individual](#individual)
++ [Comparison](#compare)
 
 ## Individual
 ### Determine an individual team's value
