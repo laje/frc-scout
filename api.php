@@ -1,7 +1,7 @@
 <?php
 
 //Define the name of the api forwarder here. Literally this file's name. It shouldn't change, to be honest.
-$filename = 'api.php';
+$filename = 'api\.php';
 
 //Update to allow CORs. I didn't notice this until I tried to do something with another app.
 //I think that this is all that's needed. Hopefully it doesn't cause any trouble.
@@ -9,7 +9,7 @@ header("Access-Control-Allow-Origin: *");
 
 $ch = curl_init();
 
-preg_match('/'.$filename.'\/$/', $_SERVER[PHP_SELF], $pl, PREG_OFFSET_CAPTURE);
+preg_match('/'.$filename.'\/$|'.$filename.'$/', $_SERVER[PHP_SELF], $pl, PREG_OFFSET_CAPTURE);
 if( $pl[0][1] > 0 ){
   $ne = true;
   echo("
@@ -26,13 +26,16 @@ if( $pl[0][1] > 0 ){
       line-height: 1.75;
     }
     code{
-      font-family: 'Consolas', 'Courier New', 'Courier';
+      font-family: 'Consolas', 'Courier New', 'Courier' !important;
       background-color: rgba(0, 0, 0, 0.075);
       border-radius: 6px;
       padding: 2px 3px;
     }
-    pre>code{
+    pre > code{
       background-color: #fff;
+    }
+    code > span{
+      font-family: 'Consolas', 'Courier New', 'Courier';
     }
   </style>
     <h1>
