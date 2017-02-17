@@ -8,6 +8,8 @@ export default class Competition extends React.Component {
 
     this.state = {rows: <p>No database connection...</p>, anl: { pit: 33, game: 44, testing: 55 }}
 
+    this.doAnalyze = this.doAnalyze.bind(this)
+
     let participants = []
     let rows = []
 
@@ -34,6 +36,10 @@ export default class Competition extends React.Component {
         response.json().then(function(data) {
           analyticData.comp = data.criteria;
           analyticData.partic = data.participants;
+
+          this.doAnalyze(analyticData.partic)
+
+
           for(let i = 0; i < Object.keys(data.participants).length; i++) {
             rows.push(<CompetitionBase key={i} teamNumber={data.participants[i]}/>)
           }
@@ -44,14 +50,53 @@ export default class Competition extends React.Component {
     .catch(function(err) {
       console.log('Fetch Error: ', err);
     });
+  }
 
-    setTimeout(() => {
-      this.setState({anl:{
-        testing: 88,
-        pit: 99,
-        game: 22
-      }})
-    }, 2000)
+  doAnalyze(teams) {
+    //Compatible/incompatible teams
+    let compats = []
+    let unlikes = []
+
+    console.log(teams)
+
+    for (let team in Object.keys(teams)){
+      fetch('https://' + window.url + '/compare/' + teams[team] + '/' + window.myTeam)
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Error: ' +
+              response.status);
+            return;
+          }
+
+          response.json().then(function(data) {
+            if(data.compatibility >= 12.5){
+              compats.push(teams[team])
+            } else {
+              unlikes.push(teams[team])
+            }
+
+            this.setState({
+              anl:{
+                pit: compats.length,
+                game: unlikes.length
+              }
+            })
+          }.bind(this)).catch(function(err){
+            if(("" + err).match('/(\d$)/g')){console.log("E")}
+          });
+        }.bind(this)
+      )
+      .catch(function(err) {
+        console.log('Fetch Error: ', err);
+      });
+    }
+
+    this.setState({anl:{
+      testing: teams.length,
+      pit: 99,
+      game: 22
+    }})
   }
 
   render() {

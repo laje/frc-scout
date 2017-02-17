@@ -20,7 +20,7 @@
                     "GearScore": "Teleop",
                     "HopperCollect": "No"
                 },
-                "game": {}
+                "game": []
             }
         },
         "99": {
@@ -37,7 +37,7 @@
                 "pit": {
                     "test": 123
                 },
-                "game": {}
+                "game": []
             }
         },
         "312": {
@@ -54,7 +54,7 @@
                     "MainPoint": "Boiler",
                     "ClimbRope": "Yes"
                 },
-                "game": {}
+                "game": []
             },
             "teamName": "No Record",
             "teamHome": "No Record",
@@ -101,7 +101,7 @@
                     "HopperCollect": "No",
                     "CrossAuto": "Yes"
                 },
-                "game": {}
+                "game": []
             }
         },
         "3294": {
@@ -124,7 +124,7 @@
                     "CrossAuto": "Yes",
                     "HopperCollect": "No"
                 },
-                "game": {}
+                "game": []
             }
         },
         "4142": {
@@ -167,7 +167,7 @@
                     "HighGoal": "Teleop",
                     "GearScore": "Both"
                 },
-                "game": {}
+                "game": []
             }
         },
         "5678": {
@@ -190,7 +190,7 @@
                     "LowGoal": "Auto",
                     "HopperCollect": "Yes"
                 },
-                "game": {}
+                "game": []
             }
         },
         "5752": {
@@ -227,7 +227,7 @@
             "teamNumber": null,
             "scout": {
                 "pit": {},
-                "game": {}
+                "game": []
             },
             "teamColour": "#ffffff",
             "teamRecord": {
@@ -256,7 +256,7 @@
                     "CrossAuto": "No",
                     "HopperCollect": "No"
                 },
-                "game": {}
+                "game": []
             }
         }
     },

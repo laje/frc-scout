@@ -64,7 +64,7 @@ cleanDbData = (data, team) ->
   if !data.teams[team].scout? then data.teams[team].scout = {}
 
   if !data.teams[team].scout.pit? then data.teams[team].scout.pit = {}
-  if !data.teams[team].scout.game? then data.teams[team].scout.game = {}
+  if !data.teams[team].scout.game? then data.teams[team].scout.game = []
 
   return data
 
@@ -103,6 +103,18 @@ ex.get('/write', (req, res) ->
 ex.post('/write', (req, res) ->
   if req.query.e? then res.end(JSON.stringify(editDb(JSON.parse(req.query.q))))
   else res.end(JSON.stringify(writeDb(JSON.parse(req.query.q))))
+)
+
+##WRITE A GAME ENTRY
+addGameElement = (team, entry) ->
+  gdata = JSON.parse(fs.readFileSync("#{__dirname}/db.json", 'utf8', (err, data) -> if err then console.log(err)))
+
+  gdata.teams[team].scout.game.push(entry)
+
+  fs.writeFileSync("#{__dirname}/db.json", JSON.stringify(data))? then return {gdata.teams[team].scout.game}
+
+ex.get('/writeg', (req, res) ->
+  addGameElement(req.team, req.words)
 )
 
 ##"DELETE" AN ENTRY

@@ -25,6 +25,7 @@ let serverUrl = {
 }
 
 window.url = serverUrl.host + serverUrl.url + serverUrl.port
+window.myTeam = '5752'
 
 ReactDOM.render(
   <Router history={hashHistory}>
