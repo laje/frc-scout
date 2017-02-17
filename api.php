@@ -26,16 +26,13 @@ if( $pl[0][1] > 0 ){
       line-height: 1.75;
     }
     code{
-      font-family: 'Consolas', 'Courier New', 'Courier' !important;
+      font-family: 'Consolas', 'Courier New', 'Courier';
       background-color: rgba(0, 0, 0, 0.075);
       border-radius: 6px;
       padding: 2px 3px;
     }
-    pre > code{
+    pre>code{
       background-color: #fff;
-    }
-    code > span{
-      font-family: 'Consolas', 'Courier New', 'Courier';
     }
   </style>
     <h1>
