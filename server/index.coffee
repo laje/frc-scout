@@ -109,12 +109,17 @@ ex.post('/write', (req, res) ->
 addGameElement = (team, entry) ->
   gdata = JSON.parse(fs.readFileSync("#{__dirname}/db.json", 'utf8', (err, data) -> if err then console.log(err)))
 
+  if !gdata.teams[team]? then gdata.teams[team] = {"scout":"pit":{}, "game": []}
+  if !gdata.teams[team].scout? then gdata.teams[team].scout = {"pit": {}, "game": []}
+  if !gdata.teams[team].scout.game? then gdata.teams[team].scout.game = []
+
   gdata.teams[team].scout.game.push(entry)
 
-  fs.writeFileSync("#{__dirname}/db.json", JSON.stringify(data))? then return {gdata.teams[team].scout.game}
+  fs.writeFileSync("#{__dirname}/db.json", JSON.stringify(gdata))
+  return JSON.stringify({"team": team, "entry": entry})
 
 ex.get('/writeg', (req, res) ->
-  addGameElement(req.team, req.words)
+  res.end(addGameElement(req.query.team, req.query.words))
 )
 
 ##"DELETE" AN ENTRY
