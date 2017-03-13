@@ -8,6 +8,7 @@ import hashlib
 
 #for httprequest
 import urllib2
+import os
 
 #for regex
 import re
@@ -82,11 +83,16 @@ class sctapp_tk(Tkinter.Tk):
         event.widget.tk_focusNext().focus()
     
     def HTTPSubmit(self, words):
+        #save just in case someone tries to submit without a connection to the server.
+        self.SaveOfflineData()
 
         req = urllib2.urlopen(self.inputServerAddr.get() + 'writeg?team=5752&words=' + words)
         res = req.read()
         resd = re.search("{\"team\"\:\"(.*)(\",)\"entry\":\"(.*)(\"})", res)
         tkMessageBox.showinfo("Submission Successful", "Message " + resd.group(3) + " submitted for team " + resd.group(1))
+
+        #if the submit succeeded, nice! delete that file. Othwewise, they'll have to forcequit but at least their data is backed up.
+        self.RemoveOfflineData()
 
     def SaveOfflineData(self):
         #give the file a "unique name". It's just "save-[team#]-[first six chars of the inputs md5]"
@@ -94,6 +100,9 @@ class sctapp_tk(Tkinter.Tk):
         file = open("save-" + self.inputTeam.get() + "-" + hashlib.md5(self.inputEntry.get("1.0", "end-1c")).hexdigest()[:6] + ".sct", "w+")
         file.write("_team:" + self.inputTeam.get() + "_data:" + self.inputEntry.get("1.0", "end-1c").replace("\n", "_br"))
         file.close()
+
+    def RemoveOfflineData(self):
+        os.remove("save-" + self.inputTeam.get() + "-" + hashlib.md5(self.inputEntry.get("1.0", "end-1c")).hexdigest()[:6] + ".sct")
 
     def LoadOfflineData(self):
         filepath = tkFileDialog.askopenfilename()
@@ -114,3 +123,4 @@ if __name__ == "__main__":
     app = sctapp_tk(None)
     app.title('fscout#game_tk')
     app.mainloop()
+
